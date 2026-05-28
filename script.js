@@ -7,6 +7,17 @@ const locations = [
 ];
 
 document.addEventListener('DOMContentLoaded', ()=>{
+  // INTRO PANEL ANIMATION
+  const introBtn = document.getElementById('intro-arrow');
+  const introPanel = document.getElementById('intro');
+  if(introBtn && introPanel){
+    introBtn.addEventListener('click', ()=>{
+      introPanel.classList.add('closed');
+      document.body.style.overflow='auto';
+    });
+  }
+  
+  // CARD ACCORDION
   const cards = document.querySelectorAll('.card');
   cards.forEach(card=>{
     const btn = card.querySelector('.card-head');
