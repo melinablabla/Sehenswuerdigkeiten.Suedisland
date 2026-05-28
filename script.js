@@ -10,9 +10,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
   // INTRO PANEL ANIMATION
   const introBtn = document.getElementById('intro-arrow');
   const introPanel = document.getElementById('intro');
+  const heroMap = document.querySelector('.hero-map');
+  const siteHeader = document.querySelector('.site-header');
+  const container = document.querySelector('.container');
+  const siteFooter = document.querySelector('.site-footer');
+  
   if(introBtn && introPanel){
     introBtn.addEventListener('click', ()=>{
       introPanel.classList.add('closed');
+      // Shift content to the right to reveal website
+      if(heroMap) heroMap.style.marginLeft = '30px';
+      if(siteHeader) siteHeader.style.marginLeft = '30px';
+      if(container) container.style.marginLeft = '30px';
+      if(siteFooter) siteFooter.style.marginLeft = '30px';
       document.body.style.overflow='auto';
     });
   }
