@@ -6,38 +6,11 @@
   --card-text:#023047;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--card-text);background:var(--bg);overflow:hidden}
-
-/* INTRO PANEL */
-.intro{
-  position:fixed;top:0;left:0;width:100%;height:100%;background:var(--blue-2);z-index:9999;display:flex;align-items:center;justify-content:center;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);transform:translateX(0);
-}
-.intro.closed{
-  transform:translateX(-calc(100% - 30px));
-}
-.intro::after{
-  content:'';
-  position:fixed;left:0;top:0;width:30px;height:100%;background:var(--blue-2);z-index:9998;
-}
-.intro-content{
-  text-align:center;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
-.intro-content h1{
-  font-size:3.5rem;font-weight:700;margin:0;letter-spacing:-1px;line-height:1.1;
-}
-.intro-arrow{
-  font-size:2.5rem;background:none;border:none;color:white;cursor:pointer;padding:0;transition:transform 0.3s ease;outline:none;margin-top:1.5rem;
-}
-.intro-arrow:hover{
-  transform:scale(1.2);
-}
-.intro.closed .intro-content{
-  display:none;
-}
-.site-header{padding:2rem 1rem 0 1rem;text-align:center;transition:margin-left 0.8s cubic-bezier(0.25,0.46,0.45,0.94);margin-left:0}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--card-text);background:var(--bg)}
+.site-header{padding:2rem 1rem 0 1rem;text-align:center}
 .site-header h1{margin:.2rem 0;font-size:1.6rem;color:var(--blue-1)}
 .subtitle{margin:0;color:#556;opacity:.9}
-.container{max-width:1100px;margin:1.2rem auto;padding:0 1rem;transition:margin-left 0.8s cubic-bezier(0.25,0.46,0.45,0.94);margin-left:0}
+.container{max-width:1100px;margin:1.2rem auto;padding:0 1rem}
 .card-grid{display:grid;grid-template-columns:1fr;gap:1rem}
 
 /* Force single-column stacking for the Sehenswürdigkeiten cards */
@@ -56,13 +29,13 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe 
 .card img{width:100%;height:auto;border-radius:8px;margin-top:10px;display:block}
 
 .map{width:100%;height:380px;border-radius:10px;overflow:hidden;margin-bottom:12px}
-.hero-map{width:100%;height:600px;overflow:hidden;transition:margin-left 0.8s cubic-bezier(0.25,0.46,0.45,0.94);margin-left:0}
+.hero-map{width:100%;height:600px;overflow:hidden}
 .hero-map iframe{width:100%;height:100%;display:block;border:0}
 .route-info{color:#fff}
 .route-info h3{margin:8px 0}
 .route-info ul{margin:0;padding-left:1rem}
 
-.site-footer{text-align:center;color:#234;padding:2rem 1rem;transition:margin-left 0.8s cubic-bezier(0.25,0.46,0.45,0.94);margin-left:0}
+.site-footer{text-align:center;color:#234;padding:2rem 1rem}
 
 /* mobile spacing */
 @media(max-width:600px){
