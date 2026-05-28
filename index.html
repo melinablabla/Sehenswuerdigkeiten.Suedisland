@@ -1,8 +1,93 @@
 <!doctype html>
-<html>
-  <head><title>Meine Seite</title></head>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sehenswürdigkeiten Island</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  </head>
   <body>
-    <h1>Hallo Welt</h1>
-    <p>Das ist meine erste Webseite.</p>
+    <header class="site-header">
+      <h1>Sehenswürdigkeiten — Island</h1>
+      <p class="subtitle">Eine kompakte Reiseroute mit Highlights</p>
+    </header>
+
+    <main class="container">
+      <section class="card-grid" id="cards">
+        <!-- Cards werden vom HTML/JS befüllt -->
+
+        <article class="card" data-key="diamond">
+          <button class="card-head">Diamond Beach</button>
+          <div class="card-body">
+            <p>Diamond Beach liegt am Gletschersee Jökulsárlón und beeindruckt mit Eisbrocken, die wie Diamanten am schwarzen Sand glitzern. Ein atemberaubender Kontrast aus blauem Eis und dunklem Strand. Ideal für Fotografie und Spaziergänge entlang der Küste. In ruhigen Momenten hört man nur das Meer und das Knacken des Eises.</p>
+            <a class="maps-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=64.0449,-16.1790">In Google Maps öffnen</a>
+            <img src="https://source.unsplash.com/800x600/?diamond-beach-iceland" alt="Diamond Beach"/>
+          </div>
+        </article>
+
+        <article class="card" data-key="black-sand">
+          <button class="card-head">Black Sand Beach</button>
+          <div class="card-body">
+            <p>Der Black Sand Beach bei Vík (Reynisfjara) ist bekannt für seine dramatischen Basaltsäulen und den tiefschwarzen Sand. Mächtige Brandung und markante Felsformationen schaffen eine fast surrealistische Szenerie. Vorsicht bei den starken Wellen — Sicherheitsabstand ist wichtig. Ein Muss für Naturliebhaber und Fotografen.</p>
+            <a class="maps-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=63.4045,-19.0456">In Google Maps öffnen</a>
+            <img src="https://source.unsplash.com/800x600/?reynisfjara,iceland" alt="Black Sand Beach"/>
+          </div>
+        </article>
+
+        <article class="card" data-key="seljalandsfoss">
+          <button class="card-head">Seljalandsfoss</button>
+          <div class="card-body">
+            <p>Der Wasserfall Seljalandsfoss fällt malerisch von einer steilen Klippe in die Tiefe und erlaubt Besuchern einen Weg hinter dem Wasserfall. Besonders bei Sonnenuntergang entsteht eine magische Atmosphäre. Der Weg ist gut begehbar, aber bei Nässe rutschig — festes Schuhwerk ist empfehlenswert. Ein sehr fotogener Ort.</p>
+            <a class="maps-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=63.6156,-19.9896">In Google Maps öffnen</a>
+            <img src="https://source.unsplash.com/800x600/?seljalandsfoss,iceland" alt="Seljalandsfoss"/>
+          </div>
+        </article>
+
+        <article class="card" data-key="reykjavik">
+          <button class="card-head">Reykjavik</button>
+          <div class="card-body">
+            <p>Reykjavik ist die nördlichste Hauptstadt der Welt und vereint moderne Kultur mit nordischer Gelassenheit. Bunte Häuser, gemütliche Cafés und eine lebendige Kunstszene prägen die Stadt. Von hier starten viele Touren und Ausflüge in die Umgebung. Ideal als Ausgangspunkt für die Erkundung Islands.</p>
+            <a class="maps-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=64.1466,-21.9426">In Google Maps öffnen</a>
+            <img src="https://source.unsplash.com/800x600/?reykjavik,iceland" alt="Reykjavik"/>
+          </div>
+        </article>
+
+        <article class="card" data-key="blue-lagoon">
+          <button class="card-head">Blue Lagoon</button>
+          <div class="card-body">
+            <p>Die Blue Lagoon ist ein weltbekanntes Geothermal-Spa mit milchig-blauem Wasser und entspannender Atmosphäre. Das Thermalwasser ist reich an Mineralien und bietet eine einzigartige Wellness-Erfahrung. Vor allem beliebt nach langen Fahrten oder als entspannender Zwischenstopp. Reservierungen sind oft empfohlen.</p>
+            <a class="maps-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=63.8804,-22.4495">In Google Maps öffnen</a>
+            <img src="https://source.unsplash.com/800x600/?blue-lagoon-iceland" alt="Blue Lagoon"/>
+          </div>
+        </article>
+
+        <article class="card" data-key="reise">
+          <button class="card-head">Deine Reise</button>
+          <div class="card-body">
+            <div id="map" class="map"></div>
+            <div id="route-info" class="route-info">
+              <h3>Geschätzte Fahrzeiten</h3>
+              <ul id="durations"></ul>
+              <h3>Vor- und Nachteile</h3>
+              <ul>
+                <li><strong>Vorteile:</strong> Kompakte Route, viele Highlights, gut für Kurztrips.</li>
+                <li><strong>Nachteile:</strong> Kürzere Aufenthalte pro Ort, teilweise lange Fahrstrecken.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Diese Route zeigt nur einen Teil von Island. Island hat noch viele weitere Sehenswürdigkeiten, aber hier sind die wichtigsten Highlights für eine kompakte Reise dargestellt.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
