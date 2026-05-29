@@ -24,6 +24,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     });
   });
+
+  // SCROLL-DOWN BUTTON
+  const scrollBtn = document.getElementById('scroll-down');
+  if(scrollBtn){
+    scrollBtn.addEventListener('click', ()=>{
+      const target = document.querySelector('.container');
+      if(target){ target.scrollIntoView({behavior:'smooth'}); }
+    });
+  }
 });
 
 function initMap(){

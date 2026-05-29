@@ -48,3 +48,30 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe 
 @media(min-width:1200px){
   .hero-map{height:720px}
 }
+
+/* Scroll-Pfeil am Rand */
+.scroll-down{
+  position:fixed;
+  right:14px;
+  top:52%;
+  transform:translateY(-50%);
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
+  border:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 18px rgba(2,48,71,0.18);
+  z-index:1200;
+  cursor:pointer;
+}
+.scroll-down svg{display:block}
+.scroll-down:focus{outline:3px solid rgba(255,255,255,0.18);outline-offset:3px}
+.scroll-down:hover{transform:translateY(-50%) scale(1.06)}
+
+/* Auf sehr kleinen Bildschirmen kleiner und weniger aufdringlich */
+@media(max-width:420px){
+  .scroll-down{right:10px;width:42px;height:42px}
+}
